@@ -1,0 +1,114 @@
+<smart-scheduler
+  #scheduler
+  id="scheduler"
+  [dataSource]="dataSource"
+  [view]="view"
+  [firstDayOfWeek]="firstDayOfWeek"
+></smart-scheduler>
+<smart-window #editingWindow [pinned]="true">
+  <h3>{{heading}}</h3>
+  <h5>{{subHeading}}</h5>
+  <table>
+    <tr>
+      <td>
+        <div class="smart-control">
+          <label>Date Start</label>
+          <smart-date-time-picker
+            #dateStart
+            formatString="D"
+            calendar-button
+            dropDownAppendTo="body"
+          ></smart-date-time-picker>
+        </div>
+      </td>
+      <td>
+        <div class="smart-control">
+          <label>Date End</label>
+          <smart-date-time-picker
+            #dateEnd
+            formatString="dd MM yyyy hh:mm"
+            calendar-button
+            dropDownAppendTo="body"
+          ></smart-date-time-picker>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <div class="smart-control" style="display: flex; align-items: center;">
+          <label>Time off?</label>
+          <smart-switch-button [inverted]="true" #timeOff></smart-switch-button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="smart-control">
+          <label>Service</label>
+          <smart-drop-down-list #serviceInput [dataSource]="serviceDataSource">
+          </smart-drop-down-list>
+        </div>
+      </td>
+      <td>
+        <div class="smart-control">
+          <label>Business location</label>
+          <smart-drop-down-list
+            #locationInput
+            [dataSource]="locationDataSource"
+          >
+          </smart-drop-down-list>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="smart-control">
+          <label>Client</label>
+          <smart-drop-down-list #clientInput [dataSource]="clientDataSource">
+          </smart-drop-down-list>
+        </div>
+      </td>
+      <td>
+        <div class="smart-control">
+          <label>Staff</label>
+          <smart-drop-down-list #staffInput [dataSource]="staffDataSource">
+          </smart-drop-down-list>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="smart-control" style="display: flex; align-items: center;">
+          <label>Walk-in?</label>
+          <smart-switch-button [inverted]="true" #walkIn></smart-switch-button>
+        </div>
+      </td>
+      <td>
+        <div class="smart-control" style="display: flex; align-items: center;">
+          <label>Repeat </label>
+          <smart-switch-button
+            [inverted]="true"
+            #repeat
+            (change)="repeatChange($event)"
+          ></smart-switch-button>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div id="repeat-editor" style="display: none;">
+    <label>Repeat</label>
+    <smart-drop-down-list
+      (change)="repeatFreqChange($event)"
+      #repeatFreqInput
+      [dataSource]="['Hourly', 'Daily', 'Weekly', 'Monthly', 'Yearly']"
+      selected-indexes="[1]"
+    >
+    </smart-drop-down-list>
+    <div id="repeat-editors"></div>
+  </div>
+  <div style="display: flex; align-items: center; margin-top: 30px;">
+    <smart-button #cancelBtn class="cancel-btn">Cancel</smart-button>
+    <smart-button #submitBtn class="submit-btn">Submit</smart-button>
+  </div>
+</smart-window>

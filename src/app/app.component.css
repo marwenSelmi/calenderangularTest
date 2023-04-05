@@ -1,0 +1,61 @@
+smart-window {
+  --smart-window-default-height: 450px;
+  --smart-window-default-width: 90%;
+  --smart-window-header-height: 35px;
+}
+
+.smart-window .smart-content-container > .smart-content {
+  align-items: baseline;
+}
+
+#repeat-editor {
+  margin-top: 10px;
+}
+
+#repeat-editors > div {
+  margin-top: 10px;
+}
+
+#repeat-editors smart-date-time-picker {
+  width: 100px;
+}
+
+#repeat-editors smart-number-input {
+  width: 100px;
+}
+
+smart-radio-button {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.radio-button-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+smart-date-time-picker,
+smart-drop-down-list {
+}
+
+smart-window,
+smart-date-time-picker,
+smart-drop-down-list,
+smart-switch-button,
+smart-button {
+  --smart-ui-state-active: #0069ff;
+  --smart-surface-color: #5385b9;
+  --smart-surface: white;
+  --smart-primary: #0069ff;
+}
+
+smart-date-time-picker {
+  --smart-background-color: #5385b9;
+}
+
+.submit-btn {
+  margin-left: 15px;
+  --smart-background: #0069ff;
+  --smart-background-color: white;
+}
